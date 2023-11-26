@@ -7,17 +7,41 @@
 	--web: rgba(119, 19, 19);
 	--white: #ffffff;
 	--black: #000000;
+
+	--box1: #141414;
+	--box2: #1f1f1f;
+	--box1: #313131;
+	--box1: #474646;
+}
+body{color:var(--white)}
+#web-background{
+	background-image: url('https://i.postimg.cc/hvsJ7ZJf/back.jpg');
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	width: 100%; height: 100%;
+	z-index: -1;
 }
 .web-column{
-	width: 1000px;
+	max-width: 1000px;
+	width: 100%;
 	margin: 0 auto;
-	background: rgba(0,0,0,0.4)
+	background: rgba(0,0,0,0.8);
+	position: relative;
+	z-index: 2;
+}
+.web-column p{
+	color: var(--white);
 }
 .infor-box{
 	display: flex;
 	gap: 12px;
+	margin: 20px 0;
 	padding: 12px;
+	background: rgba(0,0,0,0.6);
 }
+.infor-box:nth-child(1){}
+.infor-box:nth-child(2){}
+.infor-box:nth-child(3){}
 .box_img{
 	width: 200px;
 	height: 160px;
@@ -28,9 +52,14 @@
 	display: block;
 	color: var(--white);
 	text-transform: uppercase;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 600;
-	text-shadow: 1px 2px var(--black);
+	text-shadow: 1px 2px var(--box1);
+	padding-left: 20px;
+	margin-bottom: 12px;
+}
+.box_wrap > div:nth-child(2){
+	font-style: italic; 	
 }
 .infor-box > .box_img{}
 .box_wrap-link{
@@ -42,6 +71,17 @@
 	background-color: var(--web);
 	color: var(--white);
 	border-radius: 3px;
+}
+.box_wrap-intro{
+	background: var(--box2);
+	padding: 4px 8px;
+	margin-top: 16px;
+	color: #ccc;
+	font-size: 15px;
+}
+.box-links{
+	display: flex;
+	gap: 20px;
 }
 .web-demo{
 	position: fixed;
@@ -57,6 +97,29 @@ iframe{
 	margin : 20px auto 0 auto;
 	transition: 0.6s;
 }
+.nav-respon{
+	position: absolute;
+	top: 2px; right: 8px;
+	cursor: pointer;
+}
+.nav-respon:hover .nav-respon_intro{
+	display: block;
+}
+.nav-respon > .respon_icon > i{
+	font-size: 28px;
+}
+.nav-respon p{
+	position: absolute;
+	top: 6px; left: 50px;
+	display: block;
+	display: none;
+	background: var(--black);
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 13px;
+	text-align: center;
+}
+.nav-respon .respon_icon.close{display: none}
 .web-demo_size{
 	position: absolute;
 	top: 20px; left: 20px;
@@ -64,12 +127,14 @@ iframe{
 	background-color: #3e1717;
 	padding: 20px;
 	border-radius: 3px;
+	width: 200px;
 }
 .demo_size-head{
 	font-size: 18px;
 	font-weight: 600;
 }
-.web-demo_size > span{
+.demo_size-box.close{display: none;}
+.web-demo_size > div > span{
 	display: block;
 	margin-left: 4px;
 	font-size: 16px;
